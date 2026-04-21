@@ -6,6 +6,8 @@ import Philosophy from './components/Philosophy';
 import Instructor from './components/Instructor';
 import Protocol from './components/Protocol';
 import GetStarted from './components/GetStarted';
+import Imagine from './components/Imagine';
+import Decision from './components/Decision';
 import Footer from './components/Footer';
 
 function App() {
@@ -18,6 +20,8 @@ function App() {
       <Instructor />
       <Protocol />
       <GetStarted />
+      <Imagine />
+      <Decision />
       <Footer />
     </main>
   );
