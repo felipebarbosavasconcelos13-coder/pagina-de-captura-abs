@@ -28,10 +28,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="fixed top-6 left-0 w-full flex justify-center z-50 px-4 pointer-events-none">
+    <div className="fixed top-4 md:top-6 left-0 w-full flex justify-center z-50 px-3 md:px-4 pointer-events-none">
       <nav 
         ref={navRef}
-        className={`pointer-events-auto flex items-center justify-between px-6 py-3 rounded-full transition-all duration-500 w-full max-w-4xl border ${
+        className={`pointer-events-auto flex items-center justify-between px-4 py-2 md:px-6 md:py-3 rounded-full transition-all duration-500 w-full max-w-4xl border ${
           scrolled 
             ? 'bg-black/60 backdrop-blur-xl border-[#222222]' 
             : 'bg-transparent border-transparent'
