@@ -47,7 +47,7 @@ export default function Decision() {
         </div>
 
         <div className="decision-grid grid md:grid-cols-2 gap-8 mb-20">
-          {/* Path A */}
+          {/* Path A - Negative */}
           <div className="decision-card bg-[#0a0a0c] border border-[#222] p-10 rounded-[3rem] relative overflow-hidden group hover:border-[#D00000]/30 transition-all duration-700">
             <div className="flex items-center gap-4 mb-8">
               <div className="w-12 h-12 rounded-2xl bg-red-950/30 flex items-center justify-center border border-red-900/50">
