@@ -106,8 +106,8 @@ export default function Protocol() {
   }, []);
 
   return (
-    <section id="metodo" ref={containerRef} className="relative bg-black pt-20">
-      <div className="max-w-6xl mx-auto px-6 mb-20 text-center">
+    <section id="metodo" ref={containerRef} className="relative bg-black pt-12 md:pt-20">
+      <div className="max-w-6xl mx-auto px-6 mb-12 md:mb-20 text-center">
         <p className="font-data text-xs text-[#D00000] uppercase tracking-[0.3em] mb-4">Cronograma</p>
         <h2 className="font-heading font-black text-4xl md:text-6xl text-white uppercase">
           O que você vai aprender em cada dia da imersão
@@ -120,9 +120,9 @@ export default function Protocol() {
           className="protocol-card w-full h-[100dvh] flex items-center justify-center p-6 border-t border-[#111] bg-black"
           style={{ zIndex: i + 1 }}
         >
-          <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-12 bg-[#0a0a0c] border border-[#222] rounded-[3rem] p-12 shadow-2xl relative overflow-hidden">
+          <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 bg-[#0a0a0c] border border-[#222] rounded-[3rem] p-6 md:p-12 shadow-2xl relative overflow-hidden">
             
-            <div className="w-full h-[300px] md:h-[500px] bg-[#111] rounded-[2rem] flex items-center justify-center p-8 relative">
+            <div className="w-full h-[200px] md:h-[500px] bg-[#111] rounded-[2rem] flex items-center justify-center p-8 relative">
               <div className="absolute inset-0 tech-grid opacity-10 rounded-[2rem]"></div>
               <div className="relative w-full h-full flex items-center justify-center">
                 {protocol.graphic}
@@ -148,7 +148,7 @@ export default function Protocol() {
       ))}
       
       {/* Protocol Footer */}
-      <div className="protocol-footer relative z-[10] py-32 px-6 flex flex-col items-center justify-center text-center bg-black">
+      <div className="protocol-footer relative z-[10] py-16 md:py-32 px-6 flex flex-col items-center justify-center text-center bg-black">
         <h3 className="font-heading font-black text-2xl md:text-4xl text-white max-w-4xl mb-12">
           Ao final dos 3 dias, você vai enxergar o sistema ABS de forma completamente diferente
         </h3>

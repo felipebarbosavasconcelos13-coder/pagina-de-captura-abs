@@ -56,18 +56,18 @@ export default function Imagine() {
   ];
 
   return (
-    <section ref={sectionRef} className="py-24 px-6 bg-[#050505] relative overflow-hidden">
+    <section ref={sectionRef} className="py-12 md:py-24 px-6 bg-[#050505] relative overflow-hidden">
       {/* Decorative Blur */}
       <div className="absolute top-1/2 left-0 w-[300px] h-[300px] bg-[#D00000]/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2"></div>
       
-      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-16">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
         <div className="flex-1">
-          <h2 className="imagine-title font-heading font-black text-4xl md:text-6xl text-white mb-10 leading-tight uppercase">
+          <h2 className="imagine-title font-heading font-black text-4xl md:text-6xl text-white mb-6 md:mb-10 leading-tight uppercase">
             Imagine sua oficina <br/>
             <span className="text-[#D00000] font-drama italic text-5xl md:text-7xl pt-2 inline-block lowercase">depois de dominar isso</span>
           </h2>
           
-          <div className="imagine-list space-y-6 mb-12">
+          <div className="imagine-list space-y-4 md:space-y-6 mb-10 md:mb-12">
             <p className="text-[#ADB5BD] font-data text-sm tracking-widest uppercase mb-4 opacity-60">Você passa a:</p>
             {items.map((item, i) => (
               <div key={i} className="imagine-item flex items-center gap-4 group">

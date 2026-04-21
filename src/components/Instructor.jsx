@@ -38,11 +38,11 @@ export default function Instructor() {
   }, []);
 
   return (
-    <section ref={containerRef} id="instrutor" className="relative py-24 md:py-32 bg-[#050505] overflow-hidden border-t border-[#111]">
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <section ref={containerRef} id="instrutor" className="relative py-12 md:py-32 bg-[#050505] overflow-hidden border-t border-[#111]">
+      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-12 items-center">
         
         {/* Left Side: Image Container */}
-        <div className="lg:col-span-5 relative h-[500px] md:h-[650px] w-full rounded-[2rem] overflow-hidden border border-[#222] inst-elem">
+        <div className="lg:col-span-5 relative h-[350px] md:h-[650px] w-full rounded-[2rem] overflow-hidden border border-[#222] inst-elem">
           <div className="absolute inset-0 bg-[#D00000]/10 mix-blend-color z-10 pointer-events-none"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-10 opacity-80"></div>
           
@@ -64,7 +64,7 @@ export default function Instructor() {
 
         {/* Right Side: Copy */}
         <div className="lg:col-span-7 flex flex-col justify-center" ref={textRef}>
-          <h2 className="inst-elem font-heading font-black text-4xl md:text-5xl text-white mb-8 uppercase leading-[1.1]">
+          <h2 className="inst-elem font-heading font-black text-4xl md:text-5xl text-white mb-6 md:mb-8 uppercase leading-[1.1]">
             Você não vai aprender com um teórico. <br className="hidden md:block" />
             <span className="text-[#ADB5BD] font-drama italic lowercase text-3xl md:text-5xl font-light">
               Vai aprender com quem vive isso todo dia.

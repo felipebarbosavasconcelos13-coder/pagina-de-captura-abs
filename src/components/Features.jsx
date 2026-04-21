@@ -24,7 +24,7 @@ const ShufflerCard = () => {
   }, []);
 
   return (
-    <div className="bg-[#111111] rounded-[2rem] border border-[#222222] p-8 relative overflow-hidden group hover:border-[#D00000]/50 transition-colors shadow-2xl">
+    <div className="bg-[#111111] rounded-[2rem] border border-[#222222] p-6 md:p-8 relative overflow-hidden group hover:border-[#D00000]/50 transition-colors shadow-2xl">
       <div className="absolute top-0 right-0 p-6 opacity-10">
         <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg>
       </div>
@@ -85,7 +85,7 @@ const TypewriterCard = () => {
   }, []);
 
   return (
-    <div className="bg-[#111111] rounded-[2rem] border border-[#222222] p-8 relative overflow-hidden group hover:border-[#D00000]/50 transition-colors shadow-2xl">
+    <div className="bg-[#111111] rounded-[2rem] border border-[#222222] p-6 md:p-8 relative overflow-hidden group hover:border-[#D00000]/50 transition-colors shadow-2xl">
       <div className="flex justify-between items-center mb-6">
         <div className="font-data text-[10px] text-[#D00000] tracking-widest">02 // PRECISÃO NA BANCADA</div>
         <div className="flex items-center gap-2 bg-[#D00000]/10 px-2 py-1 rounded">
@@ -143,7 +143,7 @@ const SchedulerCard = () => {
   }, []);
 
   return (
-    <div ref={containerRef} className="bg-[#111111] rounded-[2rem] border border-[#222222] p-8 relative overflow-hidden group hover:border-[#D00000]/50 transition-colors shadow-2xl">
+    <div ref={containerRef} className="bg-[#111111] rounded-[2rem] border border-[#222222] p-6 md:p-8 relative overflow-hidden group hover:border-[#D00000]/50 transition-colors shadow-2xl">
       <div className="font-data text-[10px] text-[#D00000] tracking-widest mb-6">03 // RENTABILIDADE ÁGIL</div>
       <h3 className="font-heading font-bold text-2xl mb-4">Lucro Real</h3>
       <p className="text-[#ADB5BD] font-light text-sm mb-8">
@@ -199,14 +199,14 @@ export default function Features() {
   }, []);
 
   return (
-    <section id="conteudo" ref={containerRef} className="py-24 md:py-32 px-6 bg-black relative">
+    <section id="conteudo" ref={containerRef} className="py-12 md:py-32 px-6 bg-black relative">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-heading font-black text-4xl md:text-5xl mb-16 md:mb-24 text-center">
-          <span className="block text-[#ADB5BD] text-xl md:text-2xl font-light mb-2">E vai parar de tentar acertar na sorte</span>
-          VOCÊ VAI APRENDER UM MÉTODO
+        <h2 className="font-heading font-black text-3xl md:text-5xl mb-12 md:mb-24 text-center">
+          <span className="block text-[#ADB5BD] text-lg md:text-2xl font-light mb-2 uppercase tracking-widest">E ENTENDA O MÉTODO DEFINITIVO</span>
+          VOCÊ VAI TER O DOMÍNIO
         </h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-12">
           <div className="feature-card"><ShufflerCard /></div>
           <div className="feature-card"><TypewriterCard /></div>
           <div className="feature-card"><SchedulerCard /></div>

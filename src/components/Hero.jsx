@@ -19,14 +19,9 @@ export default function Hero() {
   return (
     <section className="relative min-h-[100dvh] w-full flex items-start md:items-center pt-[4.5rem] pb-2 md:pt-28 md:pb-12 overflow-hidden bg-black">
       {/* Background Image & Gradient */}
-      <div className="absolute inset-0 z-0">
-        <img 
-          src="https://firebasestorage.googleapis.com/v0/b/a-z-do-diagnostico.appspot.com/o/LANDINGS%2Fcaptura_nova_abs%2Fimg_abs.webp?alt=media&token=db2bb9c5-2882-4166-9e9b-46a482d61d19" 
-          alt="Oficina Manutenção ABS" 
-          className="w-full h-full object-cover opacity-40 mix-blend-luminosity text-transparent"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
+      <div className="absolute inset-0 z-0 overflow-hidden">
+        <div className="absolute inset-0 tech-grid opacity-20"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-12 items-center">

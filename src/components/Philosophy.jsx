@@ -44,19 +44,15 @@ export default function Philosophy() {
   return (
     <section 
       ref={containerRef} 
-      className="relative min-h-screen py-24 px-6 flex items-center justify-center overflow-hidden bg-[#0A0A0A]"
+      className="relative min-h-[50vh] py-8 md:py-24 px-6 flex items-center justify-center overflow-hidden bg-[#0A0A0A]"
     >
       {/* Parallax Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div 
-          className="philo-bg absolute -top-[10%] left-0 w-full h-[120%] bg-cover bg-center opacity-10"
-          style={{ backgroundImage: 'url("https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&q=80&w=2000")' }} 
-        />
-        {/* Unsplash abstract/concrete/mechanical texture */}
+        <div className="absolute inset-0 tech-grid opacity-20"></div>
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-start gap-12 md:gap-24">
+      <div className="relative z-10 w-full max-w-4xl mx-auto flex flex-col items-start gap-8 md:gap-24">
         
         <div className="philo-text flex flex-col gap-4 max-w-2xl w-full">
           <p className="font-data text-xs text-[#D00000] uppercase tracking-widest">
