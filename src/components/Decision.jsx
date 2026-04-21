@@ -10,26 +10,30 @@ export default function Decision() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Header Animation
       gsap.from('.decision-header', {
         scrollTrigger: {
           trigger: containerRef.current,
           start: 'top 80%'
         },
-        y: 30,
-        opacity: 0,
-        duration: 1
-      });
-
-      gsap.from('.decision-card', {
-        scrollTrigger: {
-          trigger: '.decision-grid',
-          start: 'top 85%'
-        },
         y: 40,
         opacity: 0,
         duration: 0.8,
-        stagger: 0.2,
         ease: 'power3.out'
+      });
+
+      // Animação para os cards - Garantindo visibilidade
+      gsap.from('.decision-card', {
+        scrollTrigger: {
+          trigger: '.decision-grid',
+          start: 'top 95%', // Dispara mais cedo
+        },
+        y: 40,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.2,
+        ease: 'power3.out',
+        clearProps: 'opacity,transform' // Limpa as propriedades após a animação
       });
     }, containerRef);
     return () => ctx.revert();
@@ -58,7 +62,7 @@ export default function Decision() {
             <ul className="space-y-5">
               <li className="flex items-center gap-4 text-[#ADB5BD] font-light">
                 <div className="w-1.5 h-1.5 bg-red-900 rounded-full"></div>
-                Perdendo dinheiro com diagnósticos que não resolve
+                Perdendo dinheiro com diagnósticos que não resolvem
               </li>
               <li className="flex items-center gap-4 text-[#ADB5BD] font-light">
                 <div className="w-1.5 h-1.5 bg-red-900 rounded-full"></div>
