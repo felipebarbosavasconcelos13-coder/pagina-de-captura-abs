@@ -20,8 +20,13 @@ export default function Hero() {
     <section className="relative min-h-[100dvh] w-full flex items-start md:items-center pt-[4.5rem] pb-2 md:pt-28 md:pb-12 overflow-hidden bg-black">
       {/* Background Image & Gradient */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 tech-grid opacity-20"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1517524006039-e8b44ef9856a?auto=format&fit=crop&q=85&w=1600" 
+          alt="Oficina Mecânica"
+          className="w-full h-full object-cover opacity-40"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
+        <div className="absolute inset-0 bg-black/40"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-12 items-center">

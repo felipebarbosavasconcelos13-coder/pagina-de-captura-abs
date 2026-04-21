@@ -43,7 +43,9 @@ export default function Navbar() {
             alt="ARB Treinamentos" 
             className="w-8 h-8 object-contain"
           />
-          <span className="font-heading font-bold text-sm md:text-lg tracking-wider text-white">ARB TREINAMENTOS</span>
+          <span className="font-heading font-black text-xl tracking-tighter text-white">
+            ATI<span className="text-[#D00000]">GRA</span>
+          </span>
         </div>
 
         <div className="hidden md:flex items-center gap-8 font-data text-[11px] uppercase tracking-widest text-[#ADB5BD]">

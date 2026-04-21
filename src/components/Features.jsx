@@ -25,6 +25,11 @@ const ShufflerCard = () => {
 
   return (
     <div className="bg-[#111111] rounded-[2rem] border border-[#222222] p-6 md:p-8 relative overflow-hidden group hover:border-[#D00000]/50 transition-colors shadow-2xl">
+      <img 
+        src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?auto=format&fit=crop&q=85&w=800" 
+        alt="Sistema de Freio"
+        className="absolute inset-0 w-full h-full object-cover opacity-[0.03] group-hover:opacity-[0.05] transition-opacity"
+      />
       <div className="absolute top-0 right-0 p-6 opacity-10">
         <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round"><path d="m21 16-4 4-4-4"/><path d="M17 20V4"/><path d="m3 8 4-4 4 4"/><path d="M7 4v16"/></svg>
       </div>

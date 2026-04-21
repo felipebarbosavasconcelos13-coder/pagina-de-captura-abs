@@ -48,7 +48,11 @@ export default function Philosophy() {
     >
       {/* Parallax Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <div className="absolute inset-0 tech-grid opacity-20"></div>
+        <img 
+          src="https://images.unsplash.com/photo-1530124560676-4ce57426177b?auto=format&fit=crop&q=85&w=1600" 
+          alt="Ferramentas Mecânicas"
+          className="philo-bg w-full h-full object-cover opacity-20"
+        />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
       </div>
 
