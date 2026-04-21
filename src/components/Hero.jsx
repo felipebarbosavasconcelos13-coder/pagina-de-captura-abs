@@ -17,7 +17,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[100dvh] w-full flex items-center pt-20 pb-8 md:pt-28 md:pb-12 overflow-hidden bg-black">
+    <section className="relative min-h-[100dvh] w-full flex items-start md:items-center pt-[5.5rem] pb-4 md:pt-28 md:pb-12 overflow-hidden bg-black">
       {/* Background Image & Gradient */}
       <div className="absolute inset-0 z-0">
         <img 
@@ -29,9 +29,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-12 items-center">
         {/* Left Content (Text) */}
-        <div className="flex flex-col justify-end h-full mt-6 md:mt-10 lg:mt-0">
+        <div className="flex flex-col justify-end h-full mt-2 lg:mt-0">
           <div className="hero-elem font-data text-[#D00000] tracking-widest text-[10px] md:text-sm mb-3 md:mb-6 flex items-center gap-2 md:gap-3">
             <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#D00000] rounded-full animate-pulse shadow-[0_0_10px_#D00000]"></span>
             11, 12 E 13 DE MAIO | EVENTO ONLINE E GRATUITO
