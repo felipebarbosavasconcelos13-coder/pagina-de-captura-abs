@@ -38,9 +38,9 @@ export default function Hero() {
           </div>
           
           <h1 className="hero-elem font-heading text-white text-[1.6rem] sm:text-[2rem] leading-[1.1] md:text-6xl lg:text-7xl font-black md:leading-[1.1] uppercase mb-2 md:mb-6 drop-shadow-2xl">
-            DOMINE O DIAGNÓSTICO DE ABS, ESP E EPB
+            IMERSÃO 360° EM FREIOS ABS CARRO E MOTO
             <span className="block text-[#D00000] font-drama italic text-[1.4rem] sm:text-[1.6rem] leading-tight md:text-5xl lg:text-6xl mt-1 md:mt-4 normal-case">
-              e pare de perder dinheiro com diagnósticos que você não resolve.
+              O SERVIÇO QUE MAIS FATURA NA OFICINA MODERNA
             </span>
           </h1>
 
