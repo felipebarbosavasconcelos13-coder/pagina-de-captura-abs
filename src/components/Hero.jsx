@@ -21,9 +21,9 @@ export default function Hero() {
       {/* Background Image & Gradient */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <img 
-          src="https://images.unsplash.com/photo-1517524006039-e8b44ef9856a?auto=format&fit=crop&q=85&w=1600" 
-          alt="Oficina Mecânica"
-          className="w-full h-full object-cover opacity-40"
+          src="/mechanic_hero.png" 
+          alt="Mecânico Especialista"
+          className="w-full h-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
         <div className="absolute inset-0 bg-black/40"></div>
