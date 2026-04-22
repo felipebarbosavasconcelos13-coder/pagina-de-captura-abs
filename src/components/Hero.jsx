@@ -23,17 +23,49 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
+  const maskWhatsApp = (value) => {
+    if (!value) return value;
+    const phoneNumber = value.replace(/\D/g, '');
+    const phoneNumberLength = phoneNumber.length;
+    if (phoneNumberLength <= 2) return phoneNumber;
+    if (phoneNumberLength <= 6) {
+      return `(${phoneNumber.slice(0, 2)}) ${phoneNumber.slice(2)}`;
+    }
+    if (phoneNumberLength <= 10) {
+      return `(${phoneNumber.slice(0, 2)}) ${phoneNumber.slice(2, 6)}-${phoneNumber.slice(6)}`;
+    }
+    return `(${phoneNumber.slice(0, 2)}) ${phoneNumber.slice(2, 7)}-${phoneNumber.slice(7, 11)}`;
+  };
+
   const handleChange = (e) => {
     const { id, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [id]: value
-    }));
+    
+    if (id === 'whatsapp') {
+      const maskedValue = maskWhatsApp(value);
+      if (value.length > 15 && value.replace(/\D/g, '').length > 11) return; // Limita o tamanho
+      setFormData(prev => ({
+        ...prev,
+        [id]: maskedValue
+      }));
+    } else {
+      setFormData(prev => ({
+        ...prev,
+        [id]: value
+      }));
+    }
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (isSubmitting) return;
+
+    // Validação básica de WhatsApp (DDD + 8 ou 9 dígitos)
+    const rawWhatsapp = formData.whatsapp.replace(/\D/g, '');
+    if (rawWhatsapp.length < 10 || rawWhatsapp.length > 11) {
+      alert('Por favor, insira um número de WhatsApp válido com DDD.');
+      return;
+    }
+
     setIsSubmitting(true);
 
     try {
