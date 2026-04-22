@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Sparkles, ArrowRight } from 'lucide-react';
+import { Wrench, ArrowRight } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -31,7 +31,7 @@ export default function Turnaround() {
       <div className="max-w-5xl mx-auto relative z-10 text-center">
         <div className="turn-content">
           <div className="inline-flex items-center gap-2 bg-[#D00000]/10 border border-[#D00000]/30 px-6 py-2 rounded-full mb-10">
-            <Sparkles size={16} className="text-[#D00000]" />
+            <Wrench size={16} className="text-[#D00000]" />
             <span className="text-[#D00000] font-data font-bold text-[10px] tracking-widest uppercase">A Grande Virada</span>
           </div>
 
