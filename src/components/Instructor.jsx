@@ -47,7 +47,7 @@ export default function Instructor() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-10 opacity-80"></div>
           
           <img 
-            src="https://alextadeucursos.com.br/wp-content/uploads/2026/02/alex787-scaled.webp" 
+            src="/foto-do-alex-45.webp" 
             alt="Alex Tadeu - Referência Nacional em Diagnóstico" 
             className="inst-image w-full h-[120%] object-cover object-top absolute top-[-10%]"
           />

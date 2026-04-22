@@ -20,11 +20,14 @@ export default function Hero() {
     <section className="relative min-h-[100dvh] w-full flex items-start md:items-center pt-[4.5rem] pb-2 md:pt-28 md:pb-12 overflow-hidden bg-black">
       {/* Background Image & Gradient */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <img 
-          src="/mechanic_hero.png" 
-          alt="Mecânico Especialista"
-          className="w-full h-full object-cover opacity-60"
-        />
+        <picture className="w-full h-full">
+          <source media="(max-width: 768px)" srcSet="/hero_alex_mobile.webp" />
+          <img 
+            src="/hero_alex_descktop.webp" 
+            alt="Alex Tadeu - Imersão 360"
+            className="w-full h-full object-cover opacity-60"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
         <div className="absolute inset-0 bg-black/40"></div>
       </div>
