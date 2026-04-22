@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ShieldCheck, ArrowRight, User, Mail, Phone } from 'lucide-react';
+import { ShieldCheck, ArrowRight, User, Mail, Phone, Wrench } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -54,7 +54,7 @@ export default function FinalForm() {
 
           <div className="bg-[#0a0a0c] border border-[#222] p-10 md:p-14 rounded-[4rem] relative shadow-2xl">
             <div className="absolute -top-6 -right-6 bg-[#D00000] text-white p-4 rounded-3xl shadow-xl rotate-12">
-              <SparklesIcon />
+              <Wrench size={32} />
             </div>
             
             <h3 className="font-heading font-black text-2xl text-white mb-10 uppercase tracking-widest text-center">
@@ -105,11 +105,4 @@ export default function FinalForm() {
   );
 }
 
-function SparklesIcon() {
-  return (
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-sparkles">
-      <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.937A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.582a.5.5 0 0 1 0 .962L15.5 14.063A2 2 0 0 0 14.063 15.5l-1.582 6.135a.5.5 0 0 1-.962 0L9.937 15.5Z"/>
-      <path d="M20 3v4"/><path d="M22 5h-4"/><path d="M4 17v2"/><path d="M5 18H3"/>
-    </svg>
-  );
-}
+

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, Sparkles } from 'lucide-react';
+import { ArrowRight, Wrench } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -72,7 +72,7 @@ export default function Imagine() {
             {items.map((item, i) => (
               <div key={i} className="imagine-item flex items-center gap-4 group">
                 <div className="w-10 h-10 rounded-xl bg-[#111] border border-[#222] flex items-center justify-center group-hover:border-[#D00000] transition-colors">
-                  <Sparkles size={18} className="text-[#D00000]" />
+                  <Wrench size={18} className="text-[#D00000]" />
                 </div>
                 <span className="text-xl md:text-2xl text-[#E9ECEF] font-body font-light group-hover:text-white transition-colors">{item}</span>
               </div>
