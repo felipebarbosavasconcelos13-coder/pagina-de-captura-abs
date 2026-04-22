@@ -1,7 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import gsap from 'gsap';
 
 export default function Hero() {
+  const [formData, setFormData] = useState({
+    nome: '',
+    email: '',
+    whatsapp: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   useEffect(() => {
     const ctx = gsap.context(() => {
       gsap.from('.hero-elem', {
@@ -15,6 +22,49 @@ export default function Hero() {
     });
     return () => ctx.revert();
   }, []);
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [id]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    try {
+      // 1. Enviar para o Webhook
+      await fetch('https://webhook.veralscastro.com.br/webhook/ABS_novo', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      // 2. Configurar Camada de Dados (Data Layer) para o GTM
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'form_submission',
+        nome: formData.nome,
+        email: formData.email,
+        whatsapp: formData.whatsapp
+      });
+
+      // 3. Redirecionar
+      window.location.href = 'https://alextadeucursos.com.br/lp_obrg_lancamento11_05';
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error);
+      // Mesmo com erro, redirecionamos para não frustrar o usuário (comportamento comum em LPs)
+      window.location.href = 'https://alextadeucursos.com.br/lp_obrg_lancamento11_05';
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <section className="relative min-h-[100dvh] w-full flex items-start md:items-center pt-[4.5rem] pb-2 md:pt-28 md:pb-12 overflow-hidden bg-black">
@@ -63,13 +113,15 @@ export default function Hero() {
             Após se inscrever, você será direcionado para o grupo exclusivo no WhatsApp.
           </p>
 
-          <form className="relative z-10 flex flex-col gap-2 md:gap-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="relative z-10 flex flex-col gap-2 md:gap-4" onSubmit={handleSubmit}>
             <div className="flex flex-col gap-1">
-              <label htmlFor="name" className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">NOME COMPLETO</label>
+              <label htmlFor="nome" className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">NOME COMPLETO</label>
               <input 
-                id="name"
+                id="nome"
                 required
                 type="text" 
+                value={formData.nome}
+                onChange={handleChange}
                 placeholder="Ex: João da Silva"
                 className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-3 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
               />
@@ -80,6 +132,8 @@ export default function Hero() {
                 id="email"
                 required
                 type="email" 
+                value={formData.email}
+                onChange={handleChange}
                 placeholder="Ex: joao@oficina.com"
                 className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-3 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
               />
@@ -90,6 +144,8 @@ export default function Hero() {
                 id="whatsapp"
                 required
                 type="tel" 
+                value={formData.whatsapp}
+                onChange={handleChange}
                 placeholder="(11) 99999-9999"
                 className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-3 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
               />
@@ -97,9 +153,12 @@ export default function Hero() {
 
             <button 
               type="submit"
-              className="mt-1 md:mt-4 w-full group relative inline-flex items-center justify-center gap-3 bg-[#D00000] hover:bg-[#A00000] text-white px-6 py-2.5 md:px-8 md:py-4 rounded-lg md:rounded-xl font-heading font-bold uppercase tracking-widest text-[10px] md:text-sm transition-all shadow-[0_0_20px_-5px_#D00000]"
+              disabled={isSubmitting}
+              className={`mt-1 md:mt-4 w-full group relative inline-flex items-center justify-center gap-3 bg-[#D00000] hover:bg-[#A00000] text-white px-6 py-2.5 md:px-8 md:py-4 rounded-lg md:rounded-xl font-heading font-bold uppercase tracking-widest text-[10px] md:text-sm transition-all shadow-[0_0_20px_-5px_#D00000] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
             >
-              <span className="relative z-10 w-full text-center whitespace-normal md:whitespace-nowrap leading-tight">QUERO PARTICIPAR DO EVENTO GRATUITO</span>
+              <span className="relative z-10 w-full text-center whitespace-normal md:whitespace-nowrap leading-tight">
+                {isSubmitting ? 'ENVIANDO...' : 'QUERO PARTICIPAR DO EVENTO GRATUITO'}
+              </span>
             </button>
             <p className="text-center text-[9px] md:text-xs text-[#ADB5BD] mt-0.5 flex items-center justify-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-3 md:h-3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
