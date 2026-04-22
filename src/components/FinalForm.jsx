@@ -44,19 +44,19 @@ export default function FinalForm() {
   };
 
   const handleChange = (e) => {
-    const { name, value } = e.target;
+    const { id, value } = e.target;
     
-    if (name === 'whatsapp') {
+    if (id === 'whatsapp') {
       const maskedValue = maskWhatsApp(value);
       if (value.length > 15 && value.replace(/\D/g, '').length > 11) return;
       setFormData(prev => ({
         ...prev,
-        [name]: maskedValue
+        [id]: maskedValue
       }));
     } else {
       setFormData(prev => ({
         ...prev,
-        [name]: value
+        [id]: value
       }));
     }
   };
@@ -145,6 +145,7 @@ export default function FinalForm() {
                 <User className="absolute left-6 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-[#D00000] transition-colors" size={20} />
                 <input 
                   type="text" 
+                  id="nome"
                   name="nome"
                   required
                   value={formData.nome}
@@ -155,27 +156,29 @@ export default function FinalForm() {
               </div>
 
               <div className="relative group">
-                <Phone className="absolute left-6 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-[#D00000] transition-colors" size={20} />
-                <input 
-                  type="tel" 
-                  name="whatsapp"
-                  required
-                  value={formData.whatsapp}
-                  onChange={handleChange}
-                  placeholder="Seu WhatsApp" 
-                  className="w-full bg-black/50 border border-[#222] rounded-3xl py-6 pl-16 pr-6 text-white font-body focus:border-[#D00000] outline-none transition-all"
-                />
-              </div>
-
-              <div className="relative group">
                 <Mail className="absolute left-6 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-[#D00000] transition-colors" size={20} />
                 <input 
                   type="email" 
+                  id="email"
                   name="email"
                   required
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Seu melhor e-mail" 
+                  className="w-full bg-black/50 border border-[#222] rounded-3xl py-6 pl-16 pr-6 text-white font-body focus:border-[#D00000] outline-none transition-all"
+                />
+              </div>
+
+              <div className="relative group">
+                <Phone className="absolute left-6 top-1/2 -translate-y-1/2 text-white/20 group-focus-within:text-[#D00000] transition-colors" size={20} />
+                <input 
+                  type="tel" 
+                  id="whatsapp"
+                  name="whatsapp"
+                  required
+                  value={formData.whatsapp}
+                  onChange={handleChange}
+                  placeholder="Seu WhatsApp" 
                   className="w-full bg-black/50 border border-[#222] rounded-3xl py-6 pl-16 pr-6 text-white font-body focus:border-[#D00000] outline-none transition-all"
                 />
               </div>
