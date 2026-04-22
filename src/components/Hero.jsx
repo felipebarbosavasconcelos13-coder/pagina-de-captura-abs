@@ -25,11 +25,11 @@ export default function Hero() {
           <img 
             src="/hero_alex_descktop.webp" 
             alt="Alex Tadeu - Imersão 360"
-            className="w-full h-full object-cover opacity-60"
+            className="w-full h-full object-cover opacity-80"
           />
         </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
-        <div className="absolute inset-0 bg-black/40"></div>
+        <div className="absolute inset-0 bg-black/20"></div>
       </div>
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-12 items-center">
