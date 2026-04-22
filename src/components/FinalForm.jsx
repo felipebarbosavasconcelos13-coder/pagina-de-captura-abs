@@ -44,19 +44,19 @@ export default function FinalForm() {
   };
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
+    const { name, value } = e.target;
     
-    if (id === 'whatsapp') {
+    if (name === 'whatsapp') {
       const maskedValue = maskWhatsApp(value);
       if (value.length > 15 && value.replace(/\D/g, '').length > 11) return;
       setFormData(prev => ({
         ...prev,
-        [id]: maskedValue
+        [name]: maskedValue
       }));
     } else {
       setFormData(prev => ({
         ...prev,
-        [id]: value
+        [name]: value
       }));
     }
   };
@@ -97,6 +97,7 @@ export default function FinalForm() {
       window.location.href = 'https://alextadeucursos.com.br/lp_obrg_lancamento11_05';
     } catch (error) {
       console.error('Erro ao enviar formulário:', error);
+      // Redirecionar mesmo com erro para não frustrar o usuário
       window.location.href = 'https://alextadeucursos.com.br/lp_obrg_lancamento11_05';
     } finally {
       setIsSubmitting(false);

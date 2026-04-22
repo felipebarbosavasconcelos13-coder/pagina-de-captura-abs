@@ -38,19 +38,19 @@ export default function Hero() {
   };
 
   const handleChange = (e) => {
-    const { id, value } = e.target;
+    const { name, value } = e.target;
     
-    if (id === 'whatsapp') {
+    if (name === 'whatsapp') {
       const maskedValue = maskWhatsApp(value);
       if (value.length > 15 && value.replace(/\D/g, '').length > 11) return; // Limita o tamanho
       setFormData(prev => ({
         ...prev,
-        [id]: maskedValue
+        [name]: maskedValue
       }));
     } else {
       setFormData(prev => ({
         ...prev,
-        [id]: value
+        [name]: value
       }));
     }
   };
@@ -150,6 +150,7 @@ export default function Hero() {
               <label htmlFor="nome" className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">NOME COMPLETO</label>
               <input 
                 id="nome"
+                name="nome"
                 required
                 type="text" 
                 value={formData.nome}
@@ -162,6 +163,7 @@ export default function Hero() {
               <label htmlFor="email" className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">E-MAIL</label>
               <input 
                 id="email"
+                name="email"
                 required
                 type="email" 
                 value={formData.email}
@@ -174,6 +176,7 @@ export default function Hero() {
               <label htmlFor="whatsapp" className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">WHATSAPP</label>
               <input 
                 id="whatsapp"
+                name="whatsapp"
                 required
                 type="tel" 
                 value={formData.whatsapp}
