@@ -175,7 +175,7 @@ export default function Hero() {
   );
 
   return (
-    <section className="relative min-h-[100dvh] w-full flex flex-col justify-end lg:justify-center pt-[4.5rem] pb-8 md:pt-28 md:pb-12 overflow-hidden bg-black">
+    <section className="relative min-h-[100dvh] w-full flex flex-col lg:justify-center pt-[4.5rem] pb-8 md:pt-28 md:pb-12 overflow-hidden bg-black">
       {/* Background Image & Gradient */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <picture className="w-full h-full">
@@ -190,33 +190,40 @@ export default function Hero() {
         <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-end lg:items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 flex-1 flex flex-col">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 flex-1">
           {/* Left Content (Text) */}
-          <div className="flex flex-col justify-end h-full">
-            <div className="hero-elem font-data text-[#D00000] tracking-widest text-[9px] md:text-sm mb-2 md:mb-6 flex items-center gap-1 md:gap-3">
-              <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#D00000] rounded-full animate-pulse shadow-[0_0_10px_#D00000]"></span>
-              11, 12 E 13 DE MAIO | EVENTO ONLINE E GRATUITO
+          <div className="flex flex-col justify-between lg:justify-center h-full py-4 md:py-0">
+            {/* Top Content (Date & Main Title) */}
+            <div className="flex flex-col">
+              <div className="hero-elem font-data text-[#D00000] tracking-widest text-[9px] md:text-sm mb-2 md:mb-6 flex items-center gap-1 md:gap-3">
+                <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#D00000] rounded-full animate-pulse shadow-[0_0_10px_#D00000]"></span>
+                11, 12 E 13 DE MAIO | EVENTO ONLINE E GRATUITO
+              </div>
+              
+              <h1 className="hero-elem font-heading text-white text-[1.6rem] sm:text-[2rem] leading-[1.1] md:text-6xl lg:text-7xl font-black md:leading-[1.1] uppercase mb-2 md:mb-6 drop-shadow-2xl">
+                IMERSÃO 360° EM FREIOS ABS CARRO E MOTO
+              </h1>
             </div>
-            
-            <h1 className="hero-elem font-heading text-white text-[1.6rem] sm:text-[2rem] leading-[1.1] md:text-6xl lg:text-7xl font-black md:leading-[1.1] uppercase mb-2 md:mb-6 drop-shadow-2xl">
-              IMERSÃO 360° EM FREIOS ABS CARRO E MOTO
-              <span className="block text-[#D00000] font-drama italic text-[1.4rem] sm:text-[1.6rem] leading-tight md:text-5xl lg:text-6xl mt-1 md:mt-4 normal-case">
+
+            {/* Bottom Content (Subtitle, Desc & Button) */}
+            <div className="flex flex-col mt-auto lg:mt-0">
+              <span className="hero-elem block text-[#D00000] font-drama italic text-[1.4rem] sm:text-[1.6rem] leading-tight md:text-5xl lg:text-6xl mb-2 md:mb-4 normal-case">
                 O SERVIÇO QUE MAIS FATURA NA OFICINA MODERNA
               </span>
-            </h1>
 
-            <p className="hero-elem font-body text-[#ADB5BD] text-xs md:text-xl max-w-lg mb-4 md:mb-8 leading-relaxed">
-              Em 3 dias, você vai aprender como diagnosticar com segurança e transformar serviços complexos em lucro dentro da sua oficina.
-            </p>
+              <p className="hero-elem font-body text-[#ADB5BD] text-xs md:text-xl max-w-lg mb-4 md:mb-8 leading-relaxed">
+                Em 3 dias, você vai aprender como diagnosticar com segurança e transformar serviços complexos em lucro dentro da sua oficina.
+              </p>
 
-            {/* CTA Mobile Button */}
-            <button 
-              onClick={() => setIsModalOpen(true)}
-              className="lg:hidden hero-elem w-full bg-[#D00000] hover:bg-[#A00000] text-white py-4 rounded-xl font-heading font-bold uppercase tracking-widest text-xs shadow-[0_0_20px_-5px_#D00000] mt-2 transition-all active:scale-95"
-            >
-              QUERO PARTICIPAR DO EVENTO GRATUITO
-            </button>
+              {/* CTA Mobile Button */}
+              <button 
+                onClick={() => setIsModalOpen(true)}
+                className="lg:hidden hero-elem w-full bg-[#D00000] hover:bg-[#A00000] text-white py-4 rounded-xl font-heading font-bold uppercase tracking-widest text-xs shadow-[0_0_30px_-5px_#D00000] mt-2 transition-all active:scale-95 relative z-20"
+              >
+                QUERO PARTICIPAR DO EVENTO GRATUITO
+              </button>
+            </div>
           </div>
 
           {/* Right Content (Desktop Form) */}
