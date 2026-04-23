@@ -244,7 +244,7 @@ export default function Hero() {
           <div className="relative w-full max-w-md bg-[#0a0a0c] border border-[#222] rounded-3xl p-6 md:p-8 shadow-2xl animate-in fade-in zoom-in duration-300">
             <button 
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 right-4 z-50 text-[#ADB5BD] hover:text-white transition-colors p-1"
+              className="absolute -top-12 right-0 md:top-4 md:right-4 z-50 text-[#ADB5BD] hover:text-white transition-colors bg-white/10 p-2 rounded-full md:bg-transparent"
             >
               <X size={24} />
             </button>
