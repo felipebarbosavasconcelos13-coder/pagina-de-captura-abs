@@ -228,7 +228,7 @@ export default function Hero() {
 
           {/* Right Content (Desktop Form) */}
           <div className="hidden lg:block hero-elem bg-[#0a0a0c]/80 backdrop-blur-xl border border-[#222] rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden self-center max-w-md ml-auto">
-            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#D00000]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
+            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#D00000]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
             {renderFormFields()}
           </div>
         </div>
@@ -244,11 +244,11 @@ export default function Hero() {
           <div className="relative w-full max-w-md bg-[#0a0a0c] border border-[#222] rounded-3xl p-6 md:p-8 shadow-2xl animate-in fade-in zoom-in duration-300">
             <button 
               onClick={() => setIsModalOpen(false)}
-              className="absolute -top-12 right-0 md:top-4 md:right-4 text-[#ADB5BD] hover:text-white transition-colors bg-white/10 p-2 rounded-full md:bg-transparent"
+              className="absolute top-4 right-4 z-50 text-[#ADB5BD] hover:text-white transition-colors p-1"
             >
               <X size={24} />
             </button>
-            <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-[#D00000]/10 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/3"></div>
+            <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-[#D00000]/10 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
             {renderFormFields(true)}
           </div>
         </div>
