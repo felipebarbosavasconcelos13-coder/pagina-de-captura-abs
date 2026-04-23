@@ -48,11 +48,14 @@ export default function Philosophy() {
     >
       {/* Parallax Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
-        <img 
-          src="https://images.unsplash.com/photo-1530124560676-4ce57426177b?auto=format&fit=crop&q=85&w=1600" 
-          alt="Ferramentas Mecânicas"
-          className="philo-bg w-full h-full object-cover opacity-20"
-        />
+        <picture className="philo-bg w-full h-full">
+          <source media="(max-width: 768px)" srcSet="/philosophy_mobile.webp" />
+          <img 
+            src="/philosophy_desktop.webp" 
+            alt="Ferramentas Mecânicas"
+            className="w-full h-full object-cover opacity-20"
+          />
+        </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
       </div>
 

@@ -123,11 +123,14 @@ export default function Protocol() {
           <div className="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 bg-[#0a0a0c] border border-[#222] rounded-[3rem] p-6 md:p-12 shadow-2xl relative overflow-hidden">
             
             <div className="w-full h-[200px] md:h-[500px] bg-[#111] rounded-[2rem] flex items-center justify-center p-8 relative overflow-hidden">
-              <img 
-                src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=85&w=1600" 
-                alt="Carro no Elevador"
-                className="absolute inset-0 w-full h-full object-cover opacity-10 rounded-[2rem]"
-              />
+              <picture className="absolute inset-0">
+                <source media="(max-width: 768px)" srcSet="/protocol_mobile.webp" />
+                <img 
+                  src="/protocol_desktop.webp" 
+                  alt="Protocolo de Diagnóstico"
+                  className="w-full h-full object-cover opacity-10 rounded-[2rem]"
+                />
+              </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-60"></div>
               <div className="relative w-full h-full flex items-center justify-center">
                 {protocol.graphic}

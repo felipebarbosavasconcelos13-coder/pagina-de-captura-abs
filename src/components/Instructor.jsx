@@ -46,11 +46,14 @@ export default function Instructor() {
           <div className="absolute inset-0 bg-[#D00000]/10 mix-blend-color z-10 pointer-events-none"></div>
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-10 opacity-80"></div>
           
-          <img 
-            src="/foto-do-alex-45.webp" 
-            alt="Alex Tadeu - Referência Nacional em Diagnóstico" 
-            className="inst-image w-full h-[120%] object-cover object-top absolute top-[-10%]"
-          />
+          <picture className="w-full h-full">
+            <source media="(max-width: 768px)" srcSet="/instructor_mobile.webp" />
+            <img 
+              src="/instructor_desktop.webp" 
+              alt="Alex Tadeu - Referência Nacional em Diagnóstico" 
+              className="inst-image w-full h-[120%] object-cover object-top absolute top-[-10%]"
+            />
+          </picture>
           
           <div className="absolute bottom-6 left-6 z-20 flex flex-col">
             <span className="font-data text-[#D00000] text-xs tracking-widest uppercase mb-1">

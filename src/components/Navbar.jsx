@@ -39,7 +39,7 @@ export default function Navbar() {
       >
         <div className="flex items-center gap-3 group cursor-pointer hover:-translate-y-[1px] transition-transform">
           <img 
-            src="https://alextadeucursos.com.br/wp-content/uploads/2024/11/logoarb-150x150.png" 
+            src="/logo_arb.webp" 
             alt="ARB Treinamentos" 
             className="w-8 h-8 object-contain"
           />

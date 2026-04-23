@@ -105,7 +105,7 @@ export default function Hero() {
         <picture className="w-full h-full">
           <source media="(max-width: 768px)" srcSet="/hero_alex_mobile.webp" />
           <img 
-            src="/hero_alex_descktop.webp" 
+            src="/hero_alex_desktop.webp" 
             alt="Alex Tadeu - Imersão 360"
             className="w-full h-full object-cover opacity-80"
           />

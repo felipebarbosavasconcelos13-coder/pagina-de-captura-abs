@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Temporary files
+temp_images/
+*.jpg
+*.png
+!public/logo_arb.png
+!public/logo_arb.webp
+
