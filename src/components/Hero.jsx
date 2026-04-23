@@ -109,16 +109,16 @@ export default function Hero() {
 
   const renderFormFields = (isModal = false) => (
     <>
-      <h3 className={`font-heading ${isModal ? 'text-xl' : 'text-base md:text-2xl'} font-bold text-white mb-1 md:mb-2 relative z-10`}>
+      <h3 className={`font-heading ${isModal ? 'text-xl' : 'text-base md:text-xl'} font-bold text-white mb-1 md:mb-1 relative z-10`}>
         Garanta sua vaga gratuita agora
       </h3>
-      <p className={`text-[#ADB5BD] ${isModal ? 'text-xs' : 'text-[10px] md:text-sm'} mb-3 md:mb-6 relative z-10`}>
+      <p className={`text-[#ADB5BD] ${isModal ? 'text-xs' : 'text-[10px] md:text-xs'} mb-3 md:mb-4 relative z-10`}>
         Após se inscrever, você será direcionado para o grupo exclusivo no WhatsApp.
       </p>
 
       <form className="relative z-10 flex flex-col gap-2 md:gap-4" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-1">
-          <label htmlFor={`nome${isModal ? '-modal' : ''}`} className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">NOME COMPLETO</label>
+          <label htmlFor={`nome${isModal ? '-modal' : ''}`} className="text-[9px] md:text-[11px] text-[#ADB5BD] font-data tracking-wider">NOME COMPLETO</label>
           <input 
             id={`nome${isModal ? '-modal' : ''}`}
             name="nome"
@@ -127,11 +127,11 @@ export default function Hero() {
             value={formData.nome}
             onChange={handleChange}
             placeholder="Ex: João da Silva"
-            className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-3 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
+            className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-2.5 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
           />
         </div>
         <div className="flex flex-col gap-1">
-          <label htmlFor={`email${isModal ? '-modal' : ''}`} className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">E-MAIL</label>
+          <label htmlFor={`email${isModal ? '-modal' : ''}`} className="text-[9px] md:text-[11px] text-[#ADB5BD] font-data tracking-wider">E-MAIL</label>
           <input 
             id={`email${isModal ? '-modal' : ''}`}
             name="email"
@@ -140,11 +140,11 @@ export default function Hero() {
             value={formData.email}
             onChange={handleChange}
             placeholder="Ex: joao@oficina.com"
-            className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-3 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
+            className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-2.5 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
           />
         </div>
         <div className="flex flex-col gap-1">
-          <label htmlFor={`whatsapp${isModal ? '-modal' : ''}`} className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">WHATSAPP</label>
+          <label htmlFor={`whatsapp${isModal ? '-modal' : ''}`} className="text-[9px] md:text-[11px] text-[#ADB5BD] font-data tracking-wider">WHATSAPP</label>
           <input 
             id={`whatsapp${isModal ? '-modal' : ''}`}
             name="whatsapp"
@@ -153,14 +153,14 @@ export default function Hero() {
             value={formData.whatsapp}
             onChange={handleChange}
             placeholder="(11) 99999-9999"
-            className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-3 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
+            className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-2.5 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
           />
         </div>
 
         <button 
           type="submit"
           disabled={isSubmitting}
-          className={`mt-1 md:mt-4 w-full group relative inline-flex items-center justify-center gap-3 bg-[#D00000] hover:bg-[#A00000] text-white px-6 py-2.5 md:px-8 md:py-4 rounded-lg md:rounded-xl font-heading font-bold uppercase tracking-widest text-[10px] md:text-sm transition-all shadow-[0_0_20px_-5px_#D00000] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+          className={`mt-1 md:mt-2 w-full group relative inline-flex items-center justify-center gap-3 bg-[#D00000] hover:bg-[#A00000] text-white px-6 py-2.5 md:px-8 md:py-3.5 rounded-lg md:rounded-xl font-heading font-bold uppercase tracking-widest text-[10px] md:text-xs transition-all shadow-[0_0_20px_-5px_#D00000] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
         >
           <span className="relative z-10 w-full text-center whitespace-normal md:whitespace-nowrap leading-tight">
             {isSubmitting ? 'ENVIANDO...' : 'QUERO PARTICIPAR DO EVENTO GRATUITO'}
@@ -227,7 +227,7 @@ export default function Hero() {
           </div>
 
           {/* Right Content (Desktop Form) */}
-          <div className="hidden lg:block hero-elem bg-[#0a0a0c]/80 backdrop-blur-xl border border-[#222] rounded-3xl p-10 shadow-2xl relative overflow-hidden">
+          <div className="hidden lg:block hero-elem bg-[#0a0a0c]/80 backdrop-blur-xl border border-[#222] rounded-3xl p-6 md:p-8 shadow-2xl relative overflow-hidden self-center max-w-md ml-auto">
             <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#D00000]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
             {renderFormFields()}
           </div>
