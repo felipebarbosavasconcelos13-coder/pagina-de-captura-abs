@@ -1,5 +1,4 @@
 import React from 'react';
-import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Identification from './components/Identification';
 import Agitation from './components/Agitation';
@@ -15,7 +14,6 @@ import FinalForm from './components/FinalForm';
 function App() {
   return (
     <div className="bg-black text-white selection:bg-[#D00000] selection:text-white">
-      <Navbar />
       <Hero />
       <Identification />
       <Agitation />
