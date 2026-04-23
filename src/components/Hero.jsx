@@ -175,7 +175,7 @@ export default function Hero() {
   );
 
   return (
-    <section className="relative min-h-[100dvh] w-full flex flex-col lg:justify-center pt-10 pb-6 md:pt-28 md:pb-12 overflow-hidden bg-black">
+    <section className="relative min-h-[100dvh] w-full flex flex-col lg:justify-center pt-8 pb-10 md:pt-28 md:pb-12 overflow-x-hidden bg-black">
       {/* Background Image & Gradient */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <picture className="w-full h-full">
@@ -193,7 +193,7 @@ export default function Hero() {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 flex-1 flex flex-col">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 flex-1">
           {/* Left Content (Text) */}
-          <div className="flex flex-col justify-between lg:justify-center h-full py-4 md:py-0">
+          <div className="flex flex-col justify-start lg:justify-center h-full py-4 md:py-0 gap-6 md:gap-0">
             {/* Top Content (Date & Main Title) */}
             <div className="flex flex-col">
               <div className="hero-elem font-data text-[#D00000] tracking-widest text-[9px] md:text-sm mb-2 md:mb-6 flex items-center gap-1 md:gap-3">
@@ -207,19 +207,19 @@ export default function Hero() {
             </div>
 
             {/* Bottom Content (Subtitle, Desc & Button) */}
-            <div className="flex flex-col mt-auto lg:mt-0">
+            <div className="flex flex-col lg:mt-0">
               <span className="hero-elem block text-[#D00000] font-drama italic text-[1.25rem] sm:text-[1.6rem] leading-tight md:text-5xl lg:text-6xl mb-2 md:mb-4 normal-case">
                 O SERVIÇO QUE MAIS FATURA NA OFICINA MODERNA
               </span>
 
-              <p className="hero-elem font-body text-[#ADB5BD] text-[11px] sm:text-xs md:text-xl max-w-lg mb-3 md:mb-8 leading-relaxed">
+              <p className="hero-elem font-body text-[#ADB5BD] text-[11px] sm:text-xs md:text-xl max-w-lg mb-4 md:mb-8 leading-relaxed">
                 Em 3 dias, você vai aprender como diagnosticar com segurança e transformar serviços complexos em lucro dentro da sua oficina.
               </p>
 
               {/* CTA Mobile Button */}
               <button 
                 onClick={() => setIsModalOpen(true)}
-                className="lg:hidden hero-elem w-full bg-[#D00000] hover:bg-[#A00000] text-white py-3.5 rounded-xl font-heading font-bold uppercase tracking-widest text-[10px] shadow-[0_0_30px_-5px_#D00000] mt-1 transition-all active:scale-95 relative z-20"
+                className="lg:hidden hero-elem w-full bg-[#D00000] hover:bg-[#A00000] text-white py-4 rounded-xl font-heading font-bold uppercase tracking-widest text-[11px] shadow-[0_0_30px_-5px_#D00000] transition-all active:scale-95 relative z-[30]"
               >
                 QUERO PARTICIPAR DO EVENTO GRATUITO
               </button>
