@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import gsap from 'gsap';
+import { X, ShieldCheck } from 'lucide-react';
 
 export default function Hero() {
   const [formData, setFormData] = useState({
@@ -8,6 +9,7 @@ export default function Hero() {
     whatsapp: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -22,6 +24,18 @@ export default function Hero() {
     });
     return () => ctx.revert();
   }, []);
+
+  // Bloquear scroll quando o modal estiver aberto
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isModalOpen]);
 
   const maskWhatsApp = (value) => {
     if (!value) return value;
@@ -42,7 +56,7 @@ export default function Hero() {
     
     if (name === 'whatsapp') {
       const maskedValue = maskWhatsApp(value);
-      if (value.length > 15 && value.replace(/\D/g, '').length > 11) return; // Limita o tamanho
+      if (value.length > 15 && value.replace(/\D/g, '').length > 11) return;
       setFormData(prev => ({
         ...prev,
         [name]: maskedValue
@@ -59,7 +73,6 @@ export default function Hero() {
     e.preventDefault();
     if (isSubmitting) return;
 
-    // Validação básica de WhatsApp (DDD + 8 ou 9 dígitos)
     const rawWhatsapp = formData.whatsapp.replace(/\D/g, '');
     if (rawWhatsapp.length < 10 || rawWhatsapp.length > 11) {
       alert('Por favor, insira um número de WhatsApp válido com DDD.');
@@ -69,7 +82,6 @@ export default function Hero() {
     setIsSubmitting(true);
 
     try {
-      // 1. Enviar para o Webhook
       await fetch('https://webhook.veralscastro.com.br/webhook/ABS_novo', {
         method: 'POST',
         headers: {
@@ -78,7 +90,6 @@ export default function Hero() {
         body: JSON.stringify(formData)
       });
 
-      // 2. Configurar Camada de Dados (Data Layer) para o GTM
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({
         event: 'form_submission',
@@ -87,19 +98,84 @@ export default function Hero() {
         whatsapp: formData.whatsapp
       });
 
-      // 3. Redirecionar
       window.location.href = 'https://alextadeucursos.com.br/lp_obrg_lancamento11_05';
     } catch (error) {
       console.error('Erro ao enviar formulário:', error);
-      // Mesmo com erro, redirecionamos para não frustrar o usuário (comportamento comum em LPs)
       window.location.href = 'https://alextadeucursos.com.br/lp_obrg_lancamento11_05';
     } finally {
       setIsSubmitting(false);
     }
   };
 
+  const renderFormFields = (isModal = false) => (
+    <>
+      <h3 className={`font-heading ${isModal ? 'text-xl' : 'text-base md:text-2xl'} font-bold text-white mb-1 md:mb-2 relative z-10`}>
+        Garanta sua vaga gratuita agora
+      </h3>
+      <p className={`text-[#ADB5BD] ${isModal ? 'text-xs' : 'text-[10px] md:text-sm'} mb-3 md:mb-6 relative z-10`}>
+        Após se inscrever, você será direcionado para o grupo exclusivo no WhatsApp.
+      </p>
+
+      <form className="relative z-10 flex flex-col gap-2 md:gap-4" onSubmit={handleSubmit}>
+        <div className="flex flex-col gap-1">
+          <label htmlFor={`nome${isModal ? '-modal' : ''}`} className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">NOME COMPLETO</label>
+          <input 
+            id={`nome${isModal ? '-modal' : ''}`}
+            name="nome"
+            required
+            type="text" 
+            value={formData.nome}
+            onChange={handleChange}
+            placeholder="Ex: João da Silva"
+            className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-3 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <label htmlFor={`email${isModal ? '-modal' : ''}`} className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">E-MAIL</label>
+          <input 
+            id={`email${isModal ? '-modal' : ''}`}
+            name="email"
+            required
+            type="email" 
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Ex: joao@oficina.com"
+            className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-3 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
+          />
+        </div>
+        <div className="flex flex-col gap-1">
+          <label htmlFor={`whatsapp${isModal ? '-modal' : ''}`} className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">WHATSAPP</label>
+          <input 
+            id={`whatsapp${isModal ? '-modal' : ''}`}
+            name="whatsapp"
+            required
+            type="tel" 
+            value={formData.whatsapp}
+            onChange={handleChange}
+            placeholder="(11) 99999-9999"
+            className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-3 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
+          />
+        </div>
+
+        <button 
+          type="submit"
+          disabled={isSubmitting}
+          className={`mt-1 md:mt-4 w-full group relative inline-flex items-center justify-center gap-3 bg-[#D00000] hover:bg-[#A00000] text-white px-6 py-2.5 md:px-8 md:py-4 rounded-lg md:rounded-xl font-heading font-bold uppercase tracking-widest text-[10px] md:text-sm transition-all shadow-[0_0_20px_-5px_#D00000] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
+        >
+          <span className="relative z-10 w-full text-center whitespace-normal md:whitespace-nowrap leading-tight">
+            {isSubmitting ? 'ENVIANDO...' : 'QUERO PARTICIPAR DO EVENTO GRATUITO'}
+          </span>
+        </button>
+        <p className="text-center text-[9px] md:text-xs text-[#ADB5BD] mt-0.5 flex items-center justify-center gap-2">
+          <ShieldCheck size={isModal ? 14 : 12} className="text-[#D00000]" />
+          Seus dados estão seguros.
+        </p>
+      </form>
+    </>
+  );
+
   return (
-    <section className="relative min-h-[100dvh] w-full flex items-start md:items-center pt-[4.5rem] pb-2 md:pt-28 md:pb-12 overflow-hidden bg-black">
+    <section className="relative min-h-[100dvh] w-full flex flex-col justify-end lg:justify-center pt-[4.5rem] pb-8 md:pt-28 md:pb-12 overflow-hidden bg-black">
       {/* Background Image & Gradient */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <picture className="w-full h-full">
@@ -110,99 +186,66 @@ export default function Hero() {
             className="w-full h-full object-cover opacity-80"
           />
         </picture>
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
-        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-black"></div>
+        <div className="absolute inset-0 bg-black/10"></div>
       </div>
 
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 grid grid-cols-1 lg:grid-cols-2 gap-2 md:gap-12 items-center">
-        {/* Left Content (Text) */}
-        <div className="flex flex-col justify-end h-full mt-1 lg:mt-0">
-          <div className="hero-elem font-data text-[#D00000] tracking-widest text-[9px] md:text-sm mb-2 md:mb-6 flex items-center gap-1 md:gap-3">
-            <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#D00000] rounded-full animate-pulse shadow-[0_0_10px_#D00000]"></span>
-            11, 12 E 13 DE MAIO | EVENTO ONLINE E GRATUITO
-          </div>
-          
-          <h1 className="hero-elem font-heading text-white text-[1.6rem] sm:text-[2rem] leading-[1.1] md:text-6xl lg:text-7xl font-black md:leading-[1.1] uppercase mb-2 md:mb-6 drop-shadow-2xl">
-            IMERSÃO 360° EM FREIOS ABS CARRO E MOTO
-            <span className="block text-[#D00000] font-drama italic text-[1.4rem] sm:text-[1.6rem] leading-tight md:text-5xl lg:text-6xl mt-1 md:mt-4 normal-case">
-              O SERVIÇO QUE MAIS FATURA NA OFICINA MODERNA
-            </span>
-          </h1>
-
-          <p className="hero-elem font-body text-[#ADB5BD] text-xs md:text-xl max-w-lg mb-4 md:mb-8 leading-relaxed">
-            Em 3 dias, você vai aprender como diagnosticar com segurança e transformar serviços complexos em lucro dentro da sua oficina.
-          </p>
-        </div>
-
-        {/* Right Content (Form) */}
-        <div id="captura" className="hero-elem bg-[#0a0a0c]/80 backdrop-blur-xl border border-[#222] rounded-3xl p-4 md:p-10 shadow-2xl relative overflow-hidden">
-          <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#D00000]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
-          
-          <h3 className="font-heading text-base md:text-2xl font-bold text-white mb-1 md:mb-2 relative z-10">
-            Garanta sua vaga gratuita agora
-          </h3>
-          <p className="text-[#ADB5BD] text-[10px] md:text-sm mb-3 md:mb-6 relative z-10">
-            Após se inscrever, você será direcionado para o grupo exclusivo no WhatsApp.
-          </p>
-
-          <form className="relative z-10 flex flex-col gap-2 md:gap-4" onSubmit={handleSubmit}>
-            <div className="flex flex-col gap-1">
-              <label htmlFor="nome" className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">NOME COMPLETO</label>
-              <input 
-                id="nome"
-                name="nome"
-                required
-                type="text" 
-                value={formData.nome}
-                onChange={handleChange}
-                placeholder="Ex: João da Silva"
-                className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-3 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
-              />
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-end lg:items-center">
+          {/* Left Content (Text) */}
+          <div className="flex flex-col justify-end h-full">
+            <div className="hero-elem font-data text-[#D00000] tracking-widest text-[9px] md:text-sm mb-2 md:mb-6 flex items-center gap-1 md:gap-3">
+              <span className="w-1.5 h-1.5 md:w-2 md:h-2 bg-[#D00000] rounded-full animate-pulse shadow-[0_0_10px_#D00000]"></span>
+              11, 12 E 13 DE MAIO | EVENTO ONLINE E GRATUITO
             </div>
-            <div className="flex flex-col gap-1">
-              <label htmlFor="email" className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">E-MAIL</label>
-              <input 
-                id="email"
-                name="email"
-                required
-                type="email" 
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Ex: joao@oficina.com"
-                className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-3 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
-              />
-            </div>
-            <div className="flex flex-col gap-1">
-              <label htmlFor="whatsapp" className="text-[9px] md:text-xs text-[#ADB5BD] font-data tracking-wider">WHATSAPP</label>
-              <input 
-                id="whatsapp"
-                name="whatsapp"
-                required
-                type="tel" 
-                value={formData.whatsapp}
-                onChange={handleChange}
-                placeholder="(11) 99999-9999"
-                className="w-full bg-[#111] border border-[#333] rounded-lg md:rounded-xl px-3 py-1.5 md:px-4 md:py-3 outline-none text-white focus:border-[#D00000] transition-colors text-xs md:text-sm"
-              />
-            </div>
-
-            <button 
-              type="submit"
-              disabled={isSubmitting}
-              className={`mt-1 md:mt-4 w-full group relative inline-flex items-center justify-center gap-3 bg-[#D00000] hover:bg-[#A00000] text-white px-6 py-2.5 md:px-8 md:py-4 rounded-lg md:rounded-xl font-heading font-bold uppercase tracking-widest text-[10px] md:text-sm transition-all shadow-[0_0_20px_-5px_#D00000] ${isSubmitting ? 'opacity-70 cursor-not-allowed' : ''}`}
-            >
-              <span className="relative z-10 w-full text-center whitespace-normal md:whitespace-nowrap leading-tight">
-                {isSubmitting ? 'ENVIANDO...' : 'QUERO PARTICIPAR DO EVENTO GRATUITO'}
+            
+            <h1 className="hero-elem font-heading text-white text-[1.6rem] sm:text-[2rem] leading-[1.1] md:text-6xl lg:text-7xl font-black md:leading-[1.1] uppercase mb-2 md:mb-6 drop-shadow-2xl">
+              IMERSÃO 360° EM FREIOS ABS CARRO E MOTO
+              <span className="block text-[#D00000] font-drama italic text-[1.4rem] sm:text-[1.6rem] leading-tight md:text-5xl lg:text-6xl mt-1 md:mt-4 normal-case">
+                O SERVIÇO QUE MAIS FATURA NA OFICINA MODERNA
               </span>
-            </button>
-            <p className="text-center text-[9px] md:text-xs text-[#ADB5BD] mt-0.5 flex items-center justify-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" width="9" height="9" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-3 md:h-3"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-              Seus dados estão seguros.
-            </p>
-          </form>
-        </div>
+            </h1>
 
+            <p className="hero-elem font-body text-[#ADB5BD] text-xs md:text-xl max-w-lg mb-4 md:mb-8 leading-relaxed">
+              Em 3 dias, você vai aprender como diagnosticar com segurança e transformar serviços complexos em lucro dentro da sua oficina.
+            </p>
+
+            {/* CTA Mobile Button */}
+            <button 
+              onClick={() => setIsModalOpen(true)}
+              className="lg:hidden hero-elem w-full bg-[#D00000] hover:bg-[#A00000] text-white py-4 rounded-xl font-heading font-bold uppercase tracking-widest text-xs shadow-[0_0_20px_-5px_#D00000] mt-2 transition-all active:scale-95"
+            >
+              QUERO PARTICIPAR DO EVENTO GRATUITO
+            </button>
+          </div>
+
+          {/* Right Content (Desktop Form) */}
+          <div className="hidden lg:block hero-elem bg-[#0a0a0c]/80 backdrop-blur-xl border border-[#222] rounded-3xl p-10 shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-[300px] h-[300px] bg-[#D00000]/10 rounded-full blur-[80px] -translate-y-1/2 translate-x-1/3"></div>
+            {renderFormFields()}
+          </div>
+        </div>
       </div>
+
+      {/* Mobile Modal Form */}
+      {isModalOpen && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+          <div 
+            className="absolute inset-0 bg-black/90 backdrop-blur-md"
+            onClick={() => setIsModalOpen(false)}
+          ></div>
+          <div className="relative w-full max-w-md bg-[#0a0a0c] border border-[#222] rounded-3xl p-6 md:p-8 shadow-2xl animate-in fade-in zoom-in duration-300">
+            <button 
+              onClick={() => setIsModalOpen(false)}
+              className="absolute -top-12 right-0 md:top-4 md:right-4 text-[#ADB5BD] hover:text-white transition-colors bg-white/10 p-2 rounded-full md:bg-transparent"
+            >
+              <X size={24} />
+            </button>
+            <div className="absolute top-0 right-0 w-[200px] h-[200px] bg-[#D00000]/10 rounded-full blur-[60px] -translate-y-1/2 translate-x-1/3"></div>
+            {renderFormFields(true)}
+          </div>
+        </div>
+      )}
     </section>
   );
 }
