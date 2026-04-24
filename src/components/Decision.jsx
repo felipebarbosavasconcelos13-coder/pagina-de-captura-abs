@@ -112,11 +112,11 @@ export default function Decision() {
             </p>
             
             <a 
-              href="#captura" 
-              className="group relative inline-flex items-center justify-center gap-4 bg-[#D00000] text-white px-12 py-6 rounded-full font-heading font-black uppercase tracking-[0.2em] text-sm md:text-lg magnetic-btn shadow-[0_0_50px_-10px_#D00000]"
+              href="#final-form" 
+              className="w-full flex items-center justify-center gap-4 bg-white text-black py-8 rounded-full font-heading font-black uppercase tracking-widest text-lg hover:bg-[#D00000] hover:text-white transition-all duration-300"
             >
-              <span className="relative z-10">Quero participar da imersão</span>
-              <ArrowRight size={24} className="relative z-10 group-hover:translate-x-2 transition-transform" />
+              <span>Sim, quero faturar mais com ABS</span>
+              <ArrowRight />
             </a>
           </div>
         </div>

@@ -26,9 +26,9 @@ const ShufflerCard = () => {
   return (
     <div className="bg-[#111111] rounded-[2rem] border border-[#222222] p-6 md:p-8 relative overflow-hidden group hover:border-[#D00000]/50 transition-colors shadow-2xl">
       <picture className="absolute inset-0 pointer-events-none">
-        <source media="(max-width: 768px)" srcSet="/features_mobile.webp" />
+        <source media="(max-width: 768px)" srcSet="images/features_mobile.webp" />
         <img 
-          src="/features_desktop.webp" 
+          src="images/features_desktop.webp" 
           alt="Sistema de Freio"
           className="w-full h-full object-cover opacity-[0.03] group-hover:opacity-[0.05] transition-opacity"
         />

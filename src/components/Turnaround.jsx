@@ -58,7 +58,7 @@ export default function Turnaround() {
             </p>
             
             <a 
-              href="#captura" 
+              href="#final-form" 
               className="group relative inline-flex items-center justify-center gap-6 bg-white text-black px-12 py-6 rounded-full font-heading font-black uppercase tracking-[0.2em] text-sm md:text-lg hover:bg-[#D00000] hover:text-white transition-all duration-500 shadow-[0_20px_50px_-10px_rgba(255,255,255,0.1)]"
             >
               <span className="relative z-10">Quero aprender passo a passo</span>

@@ -75,7 +75,7 @@ export default function Identification() {
             <span className="font-bold text-[#D00000]">É falta de um método claro.</span>
           </p>
           <a 
-            href="#captura" 
+            href="#final-form" 
             className="group inline-flex items-center gap-3 text-white font-data font-bold uppercase tracking-widest text-sm border-b border-[#D00000] pb-1 hover:text-[#D00000] transition-colors"
           >
             Quero aprender o método correto

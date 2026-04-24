@@ -47,11 +47,14 @@ export default function Instructor() {
           <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-transparent to-transparent z-10 opacity-80"></div>
           
           <picture className="w-full h-full">
-            <source media="(max-width: 768px)" srcSet="/instructor_mobile.webp" />
+            <source media="(max-width: 768px)" srcSet="images/andreia.webp" />
             <img 
-              src="/instructor_desktop.webp" 
+              src="images/andreia.webp" 
               alt="Alex Tadeu - Referência Nacional em Diagnóstico" 
               className="inst-image w-full h-[120%] object-cover object-top absolute top-[-10%]"
+              loading="lazy"
+              width="600"
+              height="800"
             />
           </picture>
           
@@ -94,7 +97,7 @@ export default function Instructor() {
           
           <div className="inst-elem mt-10">
             <a 
-              href="#captura"
+              href="#final-form"
               className="inline-flex items-center justify-center gap-3 bg-[#1A1A1A] text-white px-8 py-4 rounded-full font-heading font-bold uppercase tracking-widest text-sm border border-[#333] hover:border-[#D00000] hover:text-[#D00000] transition-colors"
             >
               Aprender com o Expert

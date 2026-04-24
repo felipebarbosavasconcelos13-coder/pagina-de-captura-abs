@@ -67,7 +67,7 @@ export default function Agitation() {
                   "Cada diagnóstico que você não resolve é <span className="text-black font-black">dinheiro que outro mecânico está ganhando.</span>"
                 </p>
                 <a 
-                  href="#captura" 
+                  href="#final-form" 
                   className="inline-flex w-full md:w-auto justify-center items-center gap-3 bg-white text-black px-8 py-4 rounded-full font-heading font-black uppercase tracking-widest text-[10px] md:text-xs hover:bg-black hover:text-white transition-all duration-300"
                 >
                   Quero parar de perder dinheiro

@@ -124,11 +124,14 @@ export default function Protocol() {
             
             <div className="w-full h-[200px] md:h-[500px] bg-[#111] rounded-[2rem] flex items-center justify-center p-8 relative overflow-hidden">
               <picture className="absolute inset-0">
-                <source media="(max-width: 768px)" srcSet="/protocol_mobile.webp" />
+                <source media="(max-width: 768px)" srcSet="images/protocol_mobile.webp" />
                 <img 
-                  src="/protocol_desktop.webp" 
+                  src="images/protocol_desktop.webp" 
                   alt="Protocolo de Diagnóstico"
                   className="w-full h-full object-cover opacity-10 rounded-[2rem]"
+                  loading="lazy"
+                  width="600"
+                  height="400"
                 />
               </picture>
               <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black opacity-60"></div>
@@ -161,7 +164,7 @@ export default function Protocol() {
           Ao final dos 3 dias, você vai enxergar o sistema ABS de forma completamente diferente
         </h3>
         <a 
-          href="#captura"
+          href="#final-form"
           className="group relative inline-flex items-center justify-center gap-4 bg-[#D00000] hover:bg-[#A00000] text-white px-10 py-6 rounded-2xl font-heading font-bold uppercase tracking-widest text-base transition-all shadow-[0_20px_40px_-10px_#D00000] hover:scale-105 active:scale-95"
         >
           <span>Quero garantir minha vaga</span>

@@ -80,7 +80,7 @@ export default function GetStarted() {
 
           <div className="flex-1 w-full flex justify-center md:justify-start">
             <a 
-              href="#captura"
+              href="#final-form"
               className="group relative flex items-center gap-6 bg-[#D00000] text-white px-12 py-8 rounded-full font-heading font-black uppercase tracking-widest text-lg hover:scale-105 transition-all duration-300 shadow-[0_30px_60px_-15px_rgba(208,0,0,0.4)]"
             >
               <span>Garantir minha vaga</span>

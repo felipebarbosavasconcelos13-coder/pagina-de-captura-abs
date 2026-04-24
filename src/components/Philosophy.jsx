@@ -49,11 +49,14 @@ export default function Philosophy() {
       {/* Parallax Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <picture className="philo-bg w-full h-full">
-          <source media="(max-width: 768px)" srcSet="/philosophy_mobile.webp" />
+          <source media="(max-width: 768px)" srcSet="images/philosophy_mobile.webp" />
           <img 
-            src="/philosophy_desktop.webp" 
+            src="images/philosophy_desktop.webp" 
             alt="Ferramentas Mecânicas"
             className="w-full h-full object-cover opacity-20"
+            loading="lazy"
+            width="1920"
+            height="1080"
           />
         </picture>
         <div className="absolute inset-0 bg-gradient-to-b from-black via-transparent to-black"></div>
@@ -107,7 +110,7 @@ export default function Philosophy() {
           
           <div className="flex justify-start">
             <a 
-              href="#captura"
+              href="#final-form"
               className="group relative inline-flex items-center justify-center gap-4 bg-[#D00000] hover:bg-[#A00000] text-white px-8 py-5 rounded-2xl font-heading font-bold uppercase tracking-widest text-sm transition-all shadow-[0_10px_30px_-10px_#D00000] hover:scale-105 active:scale-95"
             >
               <span>Quero parar de perder dinheiro</span>

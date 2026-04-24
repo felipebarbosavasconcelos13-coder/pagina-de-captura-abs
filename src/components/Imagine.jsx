@@ -94,7 +94,7 @@ export default function Imagine() {
           </div>
 
           <a 
-            href="#captura" 
+            href="#final-form" 
             className="group relative inline-flex items-center justify-center gap-4 bg-white text-black px-10 py-5 rounded-full font-heading font-black uppercase tracking-widest text-sm hover:bg-[#D00000] hover:text-white transition-all duration-500 shadow-xl"
           >
             <span>Quero evoluir minha oficina</span>

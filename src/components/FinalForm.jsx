@@ -105,7 +105,7 @@ export default function FinalForm() {
   };
 
   return (
-    <section ref={containerRef} className="py-24 px-6 bg-black relative overflow-hidden">
+    <section id="final-form" ref={containerRef} className="py-24 px-6 bg-black relative overflow-hidden">
       {/* Abstract Background */}
       <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#D00000]/10 rounded-full blur-[150px] translate-x-1/3 translate-y-1/3"></div>
       

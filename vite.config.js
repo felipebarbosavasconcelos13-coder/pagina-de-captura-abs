@@ -8,4 +8,21 @@ export default defineConfig({
     tailwindcss(),
     react()
   ],
+  base: './',
+  build: {
+    outDir: 'cole_aqui',
+    emptyOutDir: false,
+    rollupOptions: {
+      output: {
+        entryFileNames: 'assets/js/app.min.js',
+        chunkFileNames: 'assets/js/[name].js',
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name && assetInfo.name.endsWith('.css')) {
+            return 'assets/css/styles.min.css';
+          }
+          return 'assets/[name][extname]';
+        }
+      }
+    }
+  }
 })
